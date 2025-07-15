@@ -1,0 +1,28 @@
+package Pages;
+
+import Base.BaseTest;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+public class HomePage extends BaseTest {
+
+    public HomePage() {
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy(id = "onlineBankingMenu")
+    WebElement onlineBankingLink;
+
+    @FindBy(id = "feedback")
+    WebElement feedbackLink;
+
+    public void clickOnFeedbackLink() {
+        wait.until(ExpectedConditions.elementToBeClickable(feedbackLink)).click();
+    }
+
+    public void clickOnlineBanking () {
+        onlineBankingLink.click();
+    }
+}
