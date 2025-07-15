@@ -23,6 +23,9 @@ public class LoginPage extends BaseTest {
     @FindBy(name = "submit")
     WebElement submitBtn;
 
+    @FindBy(id = "user_remember_me")
+    WebElement checkBoxRemberMe;
+
     public void clickSignin () {
         singInBtn.click();
     }
@@ -43,7 +46,14 @@ public class LoginPage extends BaseTest {
         clickSignin();
         enterUsername(username);
         enterPassword(password);
+        setCheckBoxRemberMe();
         clickSubmit();
         driver.navigate().back();
+    }
+
+    public void setCheckBoxRemberMe() {
+        if (!checkBoxRemberMe.isSelected()) {
+            checkBoxRemberMe.click();
+        }
     }
 }

@@ -18,11 +18,20 @@ public class HomePage extends BaseTest {
     @FindBy(id = "feedback")
     WebElement feedbackLink;
 
+    @FindBy(id = "transfer_funds_link")
+    WebElement transferFundsLink;
+
+
+
     public void clickOnFeedbackLink() {
         wait.until(ExpectedConditions.elementToBeClickable(feedbackLink)).click();
     }
 
     public void clickOnlineBanking () {
         onlineBankingLink.click();
+    }
+
+    public void clickOnTransferFundsLink () {
+        transferFundsLink.click();
     }
 }

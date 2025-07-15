@@ -34,7 +34,6 @@ public class BaseTest {
 
         WebDriverManager.chromedriver().setup();
 
-
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         Map<String, Object> prefs = new HashMap<String, Object>();
@@ -42,6 +41,9 @@ public class BaseTest {
         prefs.put("password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
         WebDriverManager.chromedriver().setup();
+
+
+
         driver = new ChromeDriver(options);
 
 
@@ -58,10 +60,10 @@ public class BaseTest {
         }
     }
 
-    @AfterClass
+   /* @AfterClass
 
     public void teardown () {
         driver.quit();
-    }
+    }*/
 
 }
