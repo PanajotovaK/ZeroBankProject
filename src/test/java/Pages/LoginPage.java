@@ -49,6 +49,7 @@ public class LoginPage extends BaseTest {
         setCheckBoxRemberMe();
         clickSubmit();
         driver.navigate().back();
+        driver.navigate().refresh();
     }
 
     public void setCheckBoxRemberMe() {

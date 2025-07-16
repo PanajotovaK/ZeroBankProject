@@ -26,11 +26,12 @@ public class TransferFundsPage extends BaseTest {
     @FindBy(id = "tf_description")
     WebElement descriptionField;
 
-    @FindBy(css = "button.btn.btn-primary:contains('Continue')")
+    @FindBy(xpath = "//button[contains(text(),'Continue')]")
     WebElement continueBtn;
 
-    @FindBy(css = "button.btn.btn-primary:contains('Submit')")
-    private WebElement submitButton;
+    @FindBy(xpath = "//button[contains(text(),'Submit')]")
+    WebElement submitButton;
+
 
 
     @FindBy(css = "h2.board-header")
@@ -83,6 +84,12 @@ public class TransferFundsPage extends BaseTest {
         wait.until(ExpectedConditions.visibilityOf(successMessage));
         return successMessage.getText().trim().equals("You successfully submitted your transaction.");
     }
+
+    public boolean isStillOnTransferPage() {
+        wait.until(ExpectedConditions.visibilityOf(amountField));
+        return driver.getCurrentUrl().contains("transfer-funds");
+    }
+
 
 
 }

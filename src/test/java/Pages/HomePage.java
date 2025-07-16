@@ -27,9 +27,10 @@ public class HomePage extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(feedbackLink)).click();
     }
 
-    public void clickOnlineBanking () {
-        onlineBankingLink.click();
+    public void clickOnlineBanking() {
+        wait.until(ExpectedConditions.elementToBeClickable(onlineBankingLink)).click();
     }
+
 
     public void clickOnTransferFundsLink () {
         transferFundsLink.click();

@@ -40,6 +40,20 @@ public class BaseTest {
         prefs.put("credentials_enable_service", false);
         prefs.put("password_manager_enabled", false);
         options.setExperimentalOption("prefs", prefs);
+
+
+        options.addArguments("--disable-notifications");
+        options.addArguments("--disable-save-password-bubble");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-popup-blocking");
+        options.addArguments("disable-password-manager-reauthentication");
+        options.setExperimentalOption("prefs", Map.of(
+                "credentials_enable_service", false,
+                "profile.password_manager_enabled", false
+        ));
+
+
         WebDriverManager.chromedriver().setup();
 
 
@@ -60,10 +74,10 @@ public class BaseTest {
         }
     }
 
-   /* @AfterClass
+    @AfterClass
 
     public void teardown () {
         driver.quit();
-    }*/
+    }
 
 }

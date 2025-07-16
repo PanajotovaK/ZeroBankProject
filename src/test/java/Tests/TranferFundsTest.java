@@ -10,6 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class TranferFundsTest extends BaseTest {
@@ -18,7 +19,6 @@ public class TranferFundsTest extends BaseTest {
 
     public void pageSetUp (){
         driver.get("http://zero.webappsecurity.com");
-
 
         loginPage = new LoginPage();
         homePage = new HomePage();
@@ -58,5 +58,23 @@ public class TranferFundsTest extends BaseTest {
 
 
     }
+
+    @Test
+    public void TransferFunds_CannotContinueWithEmptyFields() {
+
+        loginPage.login("username", "password");
+
+        homePage.clickOnlineBanking();
+        homePage.clickOnTransferFundsLink();
+
+        transferFundsPage.selectFromAccountByValue("1");
+        transferFundsPage.selectToAccountByValue("1");
+
+        transferFundsPage.clickOnContinueBtn();
+
+        assertFalse(transferFundsPage.isOnConfirmPage(),
+                "Should NOT navigate to confirmation page when required fields are empty.");
+    }
+
 
 }
