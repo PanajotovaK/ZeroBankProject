@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-public class TranferFundsTest extends BaseTest {
+public class TransferFundsTest extends BaseTest {
 
     @BeforeMethod
 
@@ -37,7 +37,7 @@ public class TranferFundsTest extends BaseTest {
 
     @Test
 
-    public void TransferFundsTest () {
+    public void SuccessTransferTest () {
 
 
         loginPage.login("username", "password");
